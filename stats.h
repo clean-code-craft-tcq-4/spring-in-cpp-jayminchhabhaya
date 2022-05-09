@@ -5,7 +5,6 @@ public:
     double average{};
     double max{};
     double min{};
-    ~Stats(){}
 };
 
 namespace Statistics {
