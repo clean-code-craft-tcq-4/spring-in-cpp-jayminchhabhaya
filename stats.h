@@ -11,12 +11,12 @@ public:
 class EmailAlert
 {
 public:
-    std::string emailSent;
+    bool emailSent;
 };
 class LEDAlert
 {
 public:
-    std::string ledGlows;
+    bool ledGlows;
 };
 class IAlerter
 {
