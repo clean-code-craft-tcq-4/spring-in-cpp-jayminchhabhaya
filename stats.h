@@ -1,14 +1,13 @@
 #include <vector>
-template <typename T>
 class Stats
 {
 public:
-    T average{};
-    T max{};
-    T min{};
-    ~stats(){}
+    double average{};
+    double max{};
+    double min{};
+    ~Stats(){}
 };
-template <typename T>
+
 namespace Statistics {
-    Stats ComputeStatistics(const std::vector<T>& p_vector);
+    Stats ComputeStatistics(const std::vector<double>& p_vector);
 }
