@@ -21,6 +21,12 @@ public:
 
  void checkAndAlert(std::vector<float> p_fltVector){}
 };
+class IAlerter
+{
+public:
+    EmailAlert emailAlert;
+    LEDAlert ledAlert;
+};
 
 namespace Statistics {
     Stats ComputeStatistics(const std::vector<double>& p_vector);
