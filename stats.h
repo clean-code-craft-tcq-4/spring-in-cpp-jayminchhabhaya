@@ -11,12 +11,12 @@ public:
 class EmailAlert
 {
 public:
-    string emailSent;
+    std::string emailSent;
 };
 class LEDAlert
 {
 public:
-    string ledGlows;
+    std::string ledGlows;
 };
 class IAlerter
 {
@@ -30,12 +30,12 @@ public:
  float m_maxThreshold{};   
  StatsAlerter(const float maxThreshold,std::vector<IAlerter*> p_alerters)
  {
-  m_maxThreshold = maxThreshold
+  m_maxThreshold = maxThreshold;
  }
 
  void checkAndAlert(std::vector<float> p_fltVector)
  {
-   if(m_maxThreshold > *max_element(p_fltVector.begin(), p_fltVector.end())
+   if(m_maxThreshold > *max_element(p_fltVector.begin(), p_fltVector.end()))
    {
    
    }
