@@ -1,4 +1,6 @@
 #include <vector>
+#include <iostream>
+#include <algorithm>
 class Stats
 {
 public:
@@ -9,10 +11,12 @@ public:
 class EmailAlert
 {
 public:
+    string emailSent;
 };
 class LEDAlert
 {
 public:
+    string ledGlows;
 };
 class IAlerter
 {
@@ -23,9 +27,19 @@ public:
 class StatsAlerter
 {
 public:
- StatsAlerter(const float maxThreshold,std::vector<IAlerter*> p_alerters){}
+ float m_maxThreshold{};   
+ StatsAlerter(const float maxThreshold,std::vector<IAlerter*> p_alerters)
+ {
+  m_maxThreshold = maxThreshold
+ }
 
- void checkAndAlert(std::vector<float> p_fltVector){}
+ void checkAndAlert(std::vector<float> p_fltVector)
+ {
+   if(m_maxThreshold > *max_element(p_fltVector.begin(), p_fltVector.end())
+   {
+   
+   }
+ }
 };
 namespace Statistics {
     Stats ComputeStatistics(const std::vector<double>& p_vector);
