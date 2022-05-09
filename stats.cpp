@@ -1,4 +1,6 @@
 #include "stats.h"
+#include <iostream>
+#include <algorithm>
 using namespace std;
 Stats Statistics::ComputeStatistics(const std::vector<double>& p_vector) {
     //Implement statistics here
