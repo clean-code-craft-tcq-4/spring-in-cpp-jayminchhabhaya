@@ -6,6 +6,21 @@ public:
     double max{};
     double min{};
 };
+class EmailAlert
+{
+public:
+};
+class LEDAlert
+{
+public:
+};
+class StatsAlerter
+{
+public:
+ StatsAlerter(const float maxThreshold,std::vector<IAlerter*> p_alerters){}
+
+ void checkAndAlert(std::vector<float> p_fltVector){}
+};
 
 namespace Statistics {
     Stats ComputeStatistics(const std::vector<double>& p_vector);
