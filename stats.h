@@ -4,43 +4,58 @@
 class Stats
 {
 public:
-    double average{};
-    double max{};
-    double min{};
-};
-class EmailAlert
-{
-public:
-    bool emailSent;
-};
-class LEDAlert
-{
-public:
-    bool ledGlows;
+	float average{};
+	float max{};
+	float min{};
 };
 class IAlerter
 {
 public:
-    EmailAlert emailAlert;
-    LEDAlert ledAlert;
+	virtual void setAlert() = 0;
+};
+class EmailAlert : public IAlerter
+{
+public:
+	bool emailSent{false};
+	void setAlert()
+	{
+		emailSent = true;
+	}
+};
+class LEDAlert : public IAlerter
+{
+public:
+	bool ledGlows{ false };
+	void setAlert()
+	{
+		ledGlows = true;
+	}
 };
 class StatsAlerter
 {
 public:
- float m_maxThreshold{};   
- StatsAlerter(const float maxThreshold,std::vector<IAlerter*> p_alerters)
- {
-  m_maxThreshold = maxThreshold;
- }
+	float m_maxThreshold{};
+	std::vector<IAlerter*> m_alerters;
+	StatsAlerter(const float maxThreshold,const std::vector<IAlerter*>& p_alerters)
+	{
+		m_maxThreshold = maxThreshold;
+		m_alerters = p_alerters;
+	}
 
- void checkAndAlert(std::vector<float> p_fltVector)
- {
-   if(m_maxThreshold > *max_element(p_fltVector.begin(), p_fltVector.end()))
-   {
-   
-   }
- }
+	void checkAndAlert(std::vector<float> p_fltVector)
+	{
+		for (auto &Object_alrt : m_alerters)
+		{
+			for (auto value : p_fltVector)
+			{
+				if (m_maxThreshold < value)
+				{
+					Object_alrt->setAlert();
+				}
+			}
+		}
+	}
 };
 namespace Statistics {
-    Stats ComputeStatistics(const std::vector<double>& p_vector);
+	Stats ComputeStatistics(const std::vector<float>& p_vector);
 }
