@@ -14,7 +14,7 @@ Stats Statistics::ComputeStatistics(const std::vector<float>& p_vector) {
 		for (size_t i = 0; i < p_vector.size(); i++)
 			avrg += p_vector.at(i);
 
-		Object_stats.average = avrg;
+		Object_stats.average = avrg / p_vector.size();
 	}
 	return Object_stats;
 }
