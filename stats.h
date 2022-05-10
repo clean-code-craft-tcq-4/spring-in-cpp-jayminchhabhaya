@@ -4,9 +4,9 @@
 class Stats
 {
 public:
-	float average{};
-	float max{};
-	float min{};
+	float average{NAN};
+	float max{ NAN };
+	float min{ NAN };
 };
 class IAlerter
 {
